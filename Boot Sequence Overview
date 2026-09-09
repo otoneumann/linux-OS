@@ -1,0 +1,168 @@
+# Linux Boot Process & Core System Components – Complete Reference
+
+## 1. Boot Sequence Overview
+UEFI Firmware → GRUB2 → Kernel → initramfs → systemd (PID 1) → Target/Runlevel
+
+---
+
+## 2. UEFI Firmware
+- Virtual (UTM/VMware) or physical (Mac/PC hardware)
+- Loads bootloader from EFI System Partition (`/boot/efi`)
+- Not part of Linux OS; provided by platform
+- Key Paths:
+  - `/boot/efi/EFI/ubuntu/grubx64.efi` – Ubuntu GRUB binary
+  - `/boot/efi/EFI/BOOT/bootx64.efi` – Fallback bootloader
+
+---
+
+## 3. GRUB2 Bootloader
+- Loaded by UEFI from ESP
+- Presents boot menu, loads kernel + initrd
+- Config source: `/etc/default/grub`
+- Generated config: `/boot/grub/grub.cfg` (**never edit directly**)
+
+### Essential Commands
+sudo nano /etc/default/grub   # Edit settings
+sudo update-grub              # Regenerate grub.cfg
+
+### Manual Boot (Emergency)
+set root=(hdX,gptY)
+linux /boot/vmlinuz-VER root=/dev/XXX ro
+initrd /boot/initrd.img-VER
+boot
+
+### Key Kernel Parameters
+| Parameter       | Purpose                     |
+|-----------------|-----------------------------|
+| root=           | Specify root partition      |
+| ro / rw         | Read-only / read-write root |
+| init=/bin/bash  | Emergency shell             |
+| nomodeset       | Disable GPU drivers         |
+| quiet           | Suppress boot messages      |
+| systemd.unit=   | Override default target     |
+
+---
+
+## 4. Linux Kernel
+- Core OS component managing hardware, memory, processes
+- Binary file: `/boot/vmlinuz-*`
+- Modules: `/lib/modules/<version>/`
+- Never edit kernel files manually
+- Install: `sudo apt install linux-image-*`
+- Remove old: `sudo apt autoremove`
+
+### Essential Commands
+uname -r                    # Running kernel version
+lsmod                       # List loaded modules
+modprobe <module>           # Load module
+rmmod <module>              # Unload module
+dmesg | tail                # Recent kernel messages
+journalctl -k               # Kernel log via journald
+
+---
+
+## 5. initramfs (Initial RAM Filesystem)
+- Temporary root in RAM to load storage/filesystem drivers
+- File: `/boot/initrd.img-*` (must match kernel version)
+- Discarded after real root is mounted
+- Config Dir: `/etc/initramfs-tools/`
+- Add modules: `/etc/initramfs-tools/modules`
+- Main config: `initramfs.conf`
+
+### Essential Commands
+sudo update-initramfs -u          # Regenerate for current kernel
+lsinitramfs /boot/initrd.img-VER  # Inspect contents
+cat /etc/initramfs-tools/modules  # View forced modules
+
+---
+
+## 6. systemd Targets (Modern Runlevels)
+| Target              | Legacy Runlevel | Use Case               |
+|---------------------|-----------------|------------------------|
+| rescue.target       | 1/S             | Single-user maintenance|
+| multi-user.target   | 3               | CLI server             |
+| graphical.target    | 5               | Desktop with GUI       |
+| poweroff.target     | 0               | Shutdown               |
+| reboot.target       | 6               | Reboot                 |
+
+### Essential Commands
+systemctl get-default                     # Current default target
+systemctl set-default multi-user.target   # Set CLI as default
+systemctl set-default graphical.target    # Set GUI as default
+systemctl isolate rescue.target           # Switch to rescue now
+systemctl isolate multi-user.target       # Switch to CLI now
+systemctl isolate graphical.target        # Switch to GUI now
+
+---
+
+## 7. Filesystem Hierarchy (/boot Focus)
+| Path                      | Purpose                          |
+|---------------------------|----------------------------------|
+| /boot/vmlinuz-*           | Compressed kernel image          |
+| /boot/initrd.img-*        | Initial RAM filesystem           |
+| /boot/config-*            | Kernel build configuration       |
+| /boot/System.map-*        | Kernel symbol table              |
+| /boot/grub/               | GRUB2 config & modules           |
+| /boot/efi/                | EFI System Partition mount point |
+| /lib/modules/<ver>/       | Kernel modules directory         |
+| /etc/default/grub         | GRUB user configuration          |
+| /etc/initramfs-tools/     | initramfs configuration          |
+
+---
+
+## 8. Critical Rules
+1. Never edit `/boot/grub/grub.cfg` → use `/etc/default/grub` + `update-grub`
+2. Never modify kernel/initrd binaries directly
+3. Always regenerate initramfs after module/config changes
+4. Kernel version must match initrd and modules directory
+5. `/boot/efi` contains UEFI binaries; `/boot` contains kernel/initrd
+6. Use package manager for kernel installs/removals
+
+---
+
+## 9. LPIC-1 Exam Focus Areas
+- Boot sequence order and component roles
+- GRUB manual boot and parameter syntax
+- Kernel/module management commands
+- initramfs purpose and regeneration
+- systemd targets vs legacy runlevels
+- `/boot` and `/etc` file locations and purposes
+
+---
+
+## 10. Quick Command Reference
+
+### GRUB
+sudo nano /etc/default/grub       # Edit GRUB config
+sudo update-grub                  # Regenerate /boot/grub/grub.cfg
+
+### Kernel
+uname -r                          # Show running kernel version
+lsmod                             # List loaded kernel modules
+modprobe <module_name>            # Load a kernel module
+rmmod <module_name>               # Unload a kernel module
+dmesg | tail -20                  # Last 20 kernel messages
+journalctl -k                     # Kernel messages via journald
+sudo apt install linux-image-*    # Install new kernel
+sudo apt autoremove               # Remove old kernels
+
+### Initramfs
+sudo update-initramfs -u          # Regenerate initrd for current kernel
+lsinitramfs /boot/initrd.img-*    # List initrd contents
+cat /etc/initramfs-tools/modules  # View forced modules
+
+### Systemd Targets
+systemctl get-default                     # Show default boot target
+systemctl set-default multi-user.target   # Set CLI as default
+systemctl set-default graphical.target    # Set GUI as default
+systemctl isolate rescue.target           # Switch to rescue now
+systemctl isolate multi-user.target       # Switch to CLI now
+systemctl isolate graphical.target        # Switch to GUI now
+
+### Boot Inspection
+findmnt /                         # Show root mount info
+df -h /                           # Root filesystem usage
+ls -la /boot/                     # List boot files
+file /boot/vmlinuz-*              # Identify kernel file type
+readlink /boot/vmlinuz            # Resolve kernel symlink
+cat /proc/cmdline                 # Show active kernel boot params
