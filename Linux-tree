@@ -1,0 +1,28 @@
+Power On
+  └─→ Firmware (BIOS/UEFI)
+        └─→ Bootloader (GRUB2)
+              ├─→ Loads Kernel + initrd
+              │     └─→ Kernel initializes hardware
+              │           └─→ initrd mounts real root (/)
+              │                 └─→ systemd starts (PID 1)
+              │                       └─→ Reads DEFAULT TARGET
+              │                             ├─→ graphical.target (runlevel 5)
+              │                             │     ├─→ multi-user.target
+              │                             │     │     ├─→ basic.target
+              │                             │     │     │     └─→ sysinit.target
+              │                             │     │     │           ├─→ local-fs.target
+              │                             │     │     │           ├─→ swap.target
+              │                             │     │     │           └─→ udev
+              │                             │     │     ├─→ network.target
+              │                             │     │     ├─→ sshd.service
+              │                             │     │     └─→ cron.service
+              │                             │     ├─→ display-manager.service (GDM/SDDM)
+              │                             │     └─→ GUI login screen
+              │                             │
+              │                             ├─→ multi-user.target (runlevel 3)
+              │                             │     └─→ Same as above, NO display-manager
+              │                             │           └─→ Text login prompt (tty1)
+              │                             │
+              │                             └─→ rescue.target (runlevel 1)
+              │                                   └─→ Only: root shell + minimal mounts
+              │                                         (NO network, NO services)

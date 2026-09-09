@@ -1,0 +1,40 @@
+/                   Root of everything
+├── /bin            Essential user binaries (ls, cp, bash) – available in rescue mode
+├── /sbin           System admin binaries (fdisk, iptables, systemctl)
+├── /etc            ALL config files (no binaries!)
+│   ├── /etc/fstab          Mount points
+│   ├── /etc/passwd         User accounts
+│   ├── /etc/shadow         Password hashes
+│   ├── /etc/hosts          Local DNS overrides
+│   ├── /etc/systemd/       Service units & targets
+│   └── /etc/default/grub   GRUB config source
+├── /dev            Device files (disks, terminals, null)
+│   ├── /dev/sda, /dev/vda  Disks
+│   ├── /dev/tty1-6         Virtual consoles
+│   └── /dev/null           Data sink
+├── /proc           Kernel/process info (virtual, RAM-only)
+│   ├── /proc/cpuinfo       CPU details
+│   ├── /proc/meminfo       Memory stats
+│   └── /proc/cmdline       Boot parameters used
+├── /sys            Hardware/kernel interface (virtual)
+│   └── /sys/class/net/     Network interfaces (you used this!)
+├── /tmp            Temporary files (cleared on reboot)
+├── /var            Variable data that changes during runtime
+│   ├── /var/log/           Logs (journal, syslog, auth.log)
+│   ├── /var/lib/           App state (dpkg, systemd, databases)
+│   └── /var/cache/         Cached data (apt, etc.)
+├── /home           User home directories (/home/os)
+├── /root           Root user’s home (NOT /)
+├── /boot           Bootloader + kernel + initrd
+│   ├── vmlinuz-*           Kernel images
+│   ├── initrd.img-*        Initramfs
+│   └── grub/               GRUB config & modules
+├── /usr            Read-only user programs & data
+│   ├── /usr/bin/           Non-essential user binaries
+│   ├── /usr/sbin/          Non-essential admin binaries
+│   ├── /usr/lib/           Libraries
+│   └── /usr/share/         Docs, icons, locales
+├── /opt            Optional/third-party software (e.g., /opt/homebrew)
+├── /srv            Service data (web, ftp – rarely used)
+├── /media          Auto-mounted removable media (USB, CD)
+└── /mnt            Manual mount point for temp filesystems
