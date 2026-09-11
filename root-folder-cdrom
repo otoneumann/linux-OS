@@ -1,0 +1,7 @@
+cdrom: Mount point for optical drives (CD/DVD/Blu-ray).
+
+dr-xr-xr-x: Directory. Read-only for everyone (r-x). No write permissions allowed because optical discs are typically read-only media.
+
+Purpose: Empty folder where you access disc contents after inserting a disc and mounting it (often auto-mounted in modern Ubuntu).
+
+LPIC-1: Know it's a standard mount point for removable media. Use mount command to attach a disc here if not auto-mounted.
