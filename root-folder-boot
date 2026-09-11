@@ -1,0 +1,19 @@
+config-7.0.0-31-generic (-rw-r--r--): Kernel configuration file. Lists all features and drivers compiled into kernel version 7.0.0-31. Read-only for users, writable by root.
+
+efi (drwxr-xr-x): EFI System Partition mount point. Directory for UEFI bootloader files (e.g., BOOT, ubuntu). Readable/executable by all, writable by root.
+
+grub (drwxr-xr-x): GRand Unified Bootloader directory. Contains grub.cfg config and modules needed to load the kernel. Readable/executable by all, writable by root.
+
+initrd.img (lrwxrwxrwx): Symbolic link to the current Initial RAM Disk. Points to initrd.img-7.0.0-31-generic. Symlink permissions are typically ignored by the kernel.
+
+initrd.img-7.0.0-31-generic (-rw-r--r--): The actual compressed Initial RAM Disk image. A temporary filesystem loaded into memory containing essential drivers (storage, filesystem) to mount the real root. Read-only for users, writable by root.
+
+initrd.img.old (lrwxrwxrwx): Symbolic link to the previous kernel's initrd. Used as a fallback if the new kernel or initrd fails to boot.
+
+System.map-7.0.0-31-generic (-rw-------): Kernel symbol table. Maps kernel function names to memory addresses; used strictly for debugging and crash analysis. Read/write only by root.
+
+vmlinuz (lrwxrwxrwx): Symbolic link to the current Linux kernel image. "vm" = virtual memory, "lin" = Linux, "uz" = compressed. Points to vmlinuz-7.0.0-31-generic.
+
+vmlinuz-7.0.0-31-generic (-rw-------): The actual compressed executable Linux kernel binary. The core of the operating system. Read/write only by root for security.
+
+vmlinuz.old (lrwxrwxrwx): Symbolic link to the previous kernel image. Serves as a fallback boot option if the current kernel fails.
