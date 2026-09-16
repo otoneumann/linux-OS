@@ -1,0 +1,5 @@
+sbin.usr-is-merged: Marker file for merged /usr.
+
+Meaning: Confirms /sbin links to /usr/sbin.
+
+LPIC1: Know modern distros use this layout.
