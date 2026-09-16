@@ -1,0 +1,23 @@
+var: Stands for "Variable".
+
+Purpose: Variable data files.
+
+Content: Logs, mail, spools, caches.
+
+LPIC1: Know it holds changing system data.
+
+log: System and application log files.
+
+cache: Application cache data.
+
+spool: Printer and mail job queues.
+
+mail: User mailbox storage.
+
+lock: Lock files for resources.
+
+tmp: Temporary variable files.
+
+lib: Variable state information.
+
+run: Runtime variable data.
