@@ -1,0 +1,7 @@
+proc: Stands for "Process".
+
+Type: Virtual filesystem (procfs).
+
+Content: Kernel and process information.
+
+LPIC1: Know it provides runtime system data.
