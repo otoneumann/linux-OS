@@ -1,0 +1,22 @@
+/etc stands for Et Cetera.
+Historically held miscellaneous system files.
+Now contains static configuration data.
+Stores system-wide settings and scripts.
+
+passwd: Stores user account information.
+
+shadow: Contains encrypted password hashes.
+
+group: Defines system groups and members.
+
+fstab: Lists static filesystem mount points.
+
+hosts: Maps hostnames to IP addresses locally.
+
+resolv.conf: Configures DNS name servers.
+
+hostname: Sets the system's network name.
+
+cron.d: Holds scheduled task definitions.
+
+ssh: Contains Secure Shell server settings
