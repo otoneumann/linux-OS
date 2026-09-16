@@ -1,0 +1,9 @@
+/home: Base directory for user home folders.
+
+~: Shortcut for current user's home.
+
+.bashrc: User-specific shell configuration.
+
+.profile: User login environment settings.
+
+.ssh: User SSH keys and config.
