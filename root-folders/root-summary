@@ -1,0 +1,39 @@
+bin: Essential user binaries.
+
+boot: Boot loader files.
+
+cdrom: CD-ROM mount point.
+
+dev: Device special files.
+
+etc: System configuration.
+
+home: User home directories.
+
+lib: Essential shared libraries.
+
+lost+found: Filesystem recovery.
+
+media: Removable media mounts.
+
+mnt: Temporary mount point.
+
+opt: Optional add-on apps.
+
+proc: Process/kernel info.
+
+root: Superuser home.
+
+run: Runtime variable data.
+
+sbin: System admin binaries.
+
+srv: Service data files.
+
+sys: Sysfs virtual filesystem.
+
+tmp: Temporary files.
+
+usr: User system resources.
+
+var: Variable data files.
