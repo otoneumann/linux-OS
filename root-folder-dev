@@ -1,0 +1,20 @@
+/dev stands for Devices.
+Contains special files representing hardware.
+Allows user-space access to kernel drivers.
+Includes block (storage) and character (serial) devices.
+
+Virtual Consoles: tty1–tty6 are local text terminals.
+
+Serial Ports: ttyS0–ttySN represent hardware serial interfaces.
+
+Current Console: tty0 refers to the active virtual console.
+
+ARM Serial: ttyAMA0 is specific to ARM-based systems.
+
+Permissions: Typically owned by root:tty or root:dialout.
+
+Access Control: Users must be in tty or dialout group.
+
+Configuration: Serial settings managed via stty command.
+
+Kernel Output: ttyprintk captures kernel printk messages.
