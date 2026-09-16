@@ -1,0 +1,5 @@
+mnt: Stands for "Mount".
+
+Purpose: Temporary manual filesystem mounts.
+
+LPIC1: Distinguish from /media (auto-mounts).
