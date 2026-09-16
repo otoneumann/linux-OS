@@ -1,0 +1,5 @@
+usr-is-merged: Indicates /lib is a symlink to /usr/lib.
+
+Relevance: Modern distros merge /bin, /sbin, /lib into /usr.
+
+Know that /lib and /usr/lib are the same location.
