@@ -1,0 +1,23 @@
+usr: Stands for "User System Resources".
+
+Purpose: Secondary hierarchy for user data.
+
+Content: Apps, libs, docs, and headers.
+
+LPIC1: Know it holds most installed software.
+
+bin: Essential user command binaries.
+
+sbin: System administration binaries.
+
+lib: Shared libraries for programs.
+
+include: C header files for development.
+
+share: Architecture-independent data.
+
+local: Locally installed software.
+
+games: Game binaries and data.
+
+src: Source code for system software.
