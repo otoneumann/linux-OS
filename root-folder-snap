@@ -1,0 +1,23 @@
+snap: Canonical's package manager.
+LPIC1: Not core exam content; know it exists.
+
+
+bare: Minimal empty base snap.
+
+core22/24: Ubuntu base runtime snaps.
+
+firefox: Mozilla web browser package.
+
+gnome-42/46-2404: GNOME desktop platform snaps.
+
+mesa-2404: Graphics driver libraries.
+
+gtk-common-themes: Shared UI theme assets.
+
+snapd: Snap daemon and tools.
+
+snap-store: Graphical app store.
+
+bin: Executable binaries directory.
+
+README: Documentation file.
