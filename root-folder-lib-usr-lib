@@ -1,0 +1,24 @@
+/usr/lib: Stands for "User System Libraries".
+Contains shared libraries for user programs.
+
+Holds architecture-independent data files.
+
+Stores static libraries and module files.
+
+dpkg/apt: Debian package management tools.
+
+systemd: System and service manager configs.
+
+NetworkManager: Network connection profiles.
+
+ssl/certs: Security certificates and keys.
+
+udev: Device manager rules.
+
+pam.d: Pluggable Authentication Modules.
+
+ssh/openssh: Secure shell server settings.
+
+cron.d: Scheduled task definitions.
+
+default: Application default configurations.
