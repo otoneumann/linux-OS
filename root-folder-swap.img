@@ -1,0 +1,6 @@
+swap.img: File-based swap space.
+
+Purpose: Virtual memory extension.
+
+LPIC1: Know it acts like a swap partition.
+
