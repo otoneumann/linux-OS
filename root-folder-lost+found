@@ -1,0 +1,7 @@
+lost+found: Directory for recovered file fragments.
+
+Purpose: Used by fsck during filesystem checks.
+
+Location: Found at the root of each partition.
+
+LPIC1: Know it stores orphaned inodes after crashes.

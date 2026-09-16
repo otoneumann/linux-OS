@@ -1,0 +1,5 @@
+media: Mount point for removable media.
+
+Usage: Auto-mounted USB drives or CDs.
+
+LPIC1: Distinguish from /mnt (manual mounts).
