@@ -1,0 +1,5 @@
+root: Superuser home directory.
+
+Purpose: Admin personal files and configs.
+
+LPIC1: Distinct from / (filesystem root).

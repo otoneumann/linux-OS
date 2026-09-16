@@ -1,0 +1,7 @@
+run: Stands for "Runtime".
+
+Type: Temporary filesystem (tmpfs).
+
+Content: Runtime process data (PIDs, sockets).
+
+LPIC1: Know it clears on reboot.
