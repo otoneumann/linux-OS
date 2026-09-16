@@ -1,0 +1,7 @@
+sbin: Stands for "System Binaries".
+
+usr-is-merged: Symlink to /usr/sbin.
+
+Purpose: Essential system administration commands.
+
+LPIC1: Know it contains root-only utilities.
